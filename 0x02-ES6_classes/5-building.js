@@ -11,6 +11,7 @@ export default class Building {
   get sqft() {
     return this._sqft;
   }
+
   // Abstract method for subclasses to implement
   // eslint-disable-next-line class-methods-use-this
   evacuationWarningMessage() {
