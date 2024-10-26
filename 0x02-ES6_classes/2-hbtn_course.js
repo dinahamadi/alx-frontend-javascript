@@ -13,7 +13,7 @@ export default class HolbertonCourse {
   // Setter for name with validation
   set name(value) {
     this._validateString(value);
-    this._name = value; // Store in internal variable
+    this._name = value;
   }
 
   // Getter for length
@@ -24,7 +24,7 @@ export default class HolbertonCourse {
   // Setter for length with validation
   set length(value) {
     this._validateNumber(value);
-    this._length = value; // Store in internal variable
+    this._length = value;
   }
 
   // Getter for students
@@ -35,7 +35,7 @@ export default class HolbertonCourse {
   // Setter for students with validation
   set students(value) {
     this._validateArray(value);
-    this._students = value; // Store in internal variable
+    this._students = value;
   }
 
   // Private method to validate string
@@ -54,7 +54,8 @@ export default class HolbertonCourse {
 
   // Private method to validate array
   _validateArray(value) {
-    if (!Array.isArray(value) || !value.every((item) => typeof item === 'string')) {
+    if (!Array.isArray(value)
+            || !value.every((item) => typeof item === 'string')) {
       throw new TypeError('Students must be an array of strings');
     }
   }
