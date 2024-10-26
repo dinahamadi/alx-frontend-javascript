@@ -1,8 +1,9 @@
 /* eslint-disable no-underscore-dangle */
 export default class Building {
   constructor(sqft) {
-    if (this.constructor === Building) {
-      throw new Error('Cannot instantiate abstract class Building');
+    if (this.constructor === !Building
+        && typeof this.evacuationWarningMessage !== 'function') {
+      throw new Error('Class extending Building must override evacuationWarningMessage');
     }
     this.sqft = sqft;
   }
@@ -10,11 +11,5 @@ export default class Building {
   // Getter for sqft
   get sqft() {
     return this._sqft;
-  }
-
-  // Abstract method for subclasses to implement
-  // eslint-disable-next-line class-methods-use-this
-  evacuationWarningMessage() {
-    throw new Error('Class extending Building must override evacuationWarningMessage');
   }
 }
