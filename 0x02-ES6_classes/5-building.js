@@ -22,6 +22,7 @@ export default class Building {
   }
 
   // Abstract method for subclasses to implement
+  // eslint-disable-next-line class-methods-use-this
   evacuationWarningMessage() {
     throw new Error('Class extending Building must override evacuationWarningMessage');
   }
