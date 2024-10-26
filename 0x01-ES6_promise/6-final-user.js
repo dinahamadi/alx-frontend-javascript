@@ -8,9 +8,13 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   ];
 
   return Promise.allSettled(promises).then((results) => {
-    return results.map(({ status, value, reason }) => ({
-      status,
-      value: status === 'fulfilled' ? value : reason.toString(),
-    }));
+    const output = [];
+    results.forEach(({ status, value, reason }) => {
+      output.push({
+        status,
+        value: status === 'fulfilled' ? value : reason.toString(),
+      });
+    });
+    return output;
   });
 }
